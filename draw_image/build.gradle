@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.library'
+    id'com.android.dynamic-feature'
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
@@ -44,53 +44,6 @@ android {
     }
 }
 
-//afterEvaluate {
-//
-//    def githubProperties = new Properties()
-//    githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
-//
-//    publishing {
-//        publications {
-//            release(MavenPublication) {
-//                from components.release
-//
-//                // Replace with your own group ID.
-//                groupId 'com.github.neorevolt'
-//
-//                // Replace with the name of your library
-//                artifactId 'draw-image-gitpack'
-//                version '0.0.6'
-//            }
-//
-//            debug(MavenPublication) {
-//                from components.debug
-//
-//                // Replace with your own group ID.
-//                groupId 'com.github.neorevolt'
-//
-//                // Replace with the name of your library
-//                artifactId 'draw-image-gitpack'
-//                version '0.0.6'
-//            }
-//        }
-//
-//        repositories {
-//            maven {
-//                name = "GitHubPackages"
-//
-//                // Replace GITHUB_USERID with your personal or organisation user ID and
-//                // REPOSITORY with the name of the repository on GitHub
-//                url = uri("https://maven.pkg.github.com/NeoRevolt/drawimage-demo-gitpack-publish")
-//
-//                credentials {
-//                    username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
-//                    password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
-//                }
-//            }
-//        }
-//    }
-//}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -100,6 +53,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
+    implementation project(":app")
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation('org.mockito:mockito-core:3.8.0')
@@ -114,7 +68,7 @@ dependencies {
 
     //LIFECYCLE
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+//    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
@@ -124,7 +78,8 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.material:material:1.7.0'
-    implementation "androidx.fragment:fragment-ktx:1.4.0"
+//    implementation "androidx.fragment:fragment-ktx:1.4.0"
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
     //REMOTE
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
